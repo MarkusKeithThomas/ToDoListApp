@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewmodelitem"
+            type="thuong.todolist.viewmodel.ToDoListViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded_background"
+        tools:context=".AddToDoListActivity">
+
+        <include
+            layout="@layout/custom_toolbar"
+            android:id="@+id/toolbar_saler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Title TextView -->
+        <TextView
+            android:id="@+id/tvThongTin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Thêm các thông tin Task"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_saler" />
+
+        <!-- ImageView -->
+
+        <!-- First Spinner -->
+
+        <ImageView
+            android:id="@+id/image_task"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/spenner_border"
+            android:src="@drawable/baseline_add_photo_alternate_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvThongTin" />
+
+        <TextView
+            android:id="@+id/tvtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/secondaryColor"
+            android:text="Tiêu Đề"
+            app:layout_constraintBottom_toTopOf="@+id/edtTitle"
+            app:layout_constraintStart_toStartOf="@+id/edtTitle"
+            app:layout_constraintTop_toBottomOf="@+id/image_task" />
+        <TextView
+            android:id="@+id/error_title"
+            android:visibility="@{viewmodelitem.errorTitle != null ? View.VISIBLE : View.GONE}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="75dp"
+            android:textColor="@color/red"
+            app:layout_constraintBottom_toTopOf="@+id/edtTitle"
+            app:layout_constraintStart_toStartOf="@+id/tvtitle"
+            app:layout_constraintTop_toBottomOf="@+id/image_task" />
+
+        <EditText
+            android:id="@+id/edtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@={viewmodelitem.toDoListRequestLiveData.title}"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:background="@drawable/spenner_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_task" />
+
+        <!-- TextInputLayout with EditText -->
+
+        <TextView
+            android:id="@+id/tvcontent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/secondaryColor"
+            android:text="Nội Dung"
+            app:layout_constraintBottom_toTopOf="@+id/edtcontent"
+            app:layout_constraintStart_toStartOf="@+id/edtcontent"
+            app:layout_constraintTop_toBottomOf="@+id/edtTitle" />
+        <TextView
+            android:id="@+id/error_content"
+            android:visibility="@{viewmodelitem.errorContent != null ? View.VISIBLE : View.GONE}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:textColor="@color/red"
+            app:layout_constraintBottom_toTopOf="@+id/edtcontent"
+            app:layout_constraintStart_toStartOf="@+id/tvcontent"
+            app:layout_constraintTop_toBottomOf="@+id/edtTitle" />
+
+        <EditText
+            android:id="@+id/edtcontent"
+            android:text="@={viewmodelitem.toDoListRequestLiveData.content}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:inputType="textMultiLine"
+            android:gravity="top|start"
+            android:scrollbars="vertical"
+            android:lines="6"
+            android:background="@drawable/spenner_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtTitle" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnsave_backhome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:elevation="4dp"
+            android:text="Lưu Về Home"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:backgroundTint="@color/bluedark"
+            app:cornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtcontent"
+            app:strokeColor="@color/white"
+            app:strokeWidth="2dp" />
+
+        <TextView
+            android:id="@+id/error_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/red"
+            android:visibility="@{viewmodelitem.errorimage != null ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="@+id/edtcontent"
+            app:layout_constraintTop_toBottomOf="@+id/edtcontent" />
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtcontent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>
+

@@ -1,0 +1,19 @@
+1.network_security_config trong file này có domain cần thay đổi theo sever triển
+
+2.khi triển khai sever nhớ đổi cái doamin cho phép truy cập với <domain includeSubdomains="true">10.0.2.2</domain>
+3.Trong file fetch data tu API can do chinh xac ten     @SerializedName("dateCreate")
+4. Trong file Adapter can thuc hien dinh dang lai localhost tren thiet bi android
+            String formatURL = toDoListItem.formatImageUrl(toDoListItem.getImagePath());
+5.Thuc hien chuyen đổi activilogin sang getAllToDoList can lay token cho phuong thuc
+   private String getToken() {
+        // Lấy token từ SharedPreferences hoặc nguồn khác
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String authToken = sharedPreferences.getString("authToken", null);
+        Log.d("SetToDoListActivity getToken ",authToken+"");
+        return "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQGdtYWlsLmNvbSIsImlhdCI6MTczNjkxMjM1MiwiZXhwIjoxNzM2OTk4NzUyfQ.LglWKPMcnkC_rOGle-XQp4nixh5-4s-Wgl0fYjDeV64";
+    }
+6. khi thuc hien databinding cung nhu thuc hien viewmodel mutable can nho dau =
+            android:text="@={viewmodelitem.toDoListRequestLiveData.content}"
+7.                     APIService.getInstance(token).create(APIService.class);
+khong duoc them trong live data
+8. Khi thuc thi tao mot Instance cho API thi chi khoi tao lan dau voi gia tri null va se khong khoi tao lai lan sau

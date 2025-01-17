@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: todolist # T?n ?ng d?ng, hi?n th? trong log khi ?ng d?ng ch?y.
+
+  # C?u h?nh datasource (k?t n?i v?i MySQL)
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver # Driver JDBC cho MySQL
+    url: jdbc:mysql://localhost:3307/todolist # URL k?t n?i database
+    username: root # T?i kho?n k?t n?i database
+    password: admin123 # M?t kh?u k?t n?i database
+  jpa:
+    hibernate:
+      ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 8MB
+      max-request-size: 10MB
+jwt:
+  key: 1upw9C0wwa3tUnl0KTDr0E36rWPNKW18eirBkfy7Oz0=
+upload:
+  path: ./uploads
