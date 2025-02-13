@@ -1,0 +1,10 @@
+Các Chức năng chính trong APP
++ Thực hiện đăng nhập cũng như tạo mới tai khoản qua xác thực qua (AWT - Sring Boot)
++ Kết nối cơ sở dữ liệu MYSQL đê truy vân dữ liệu online
++ Thực hiện thêm các task mới vào mysql
++ Search bởi key từ khoá cho các công việc cũ
+
+Link Video App: https://youtu.be/msRc7raceYc
+
+
+
